@@ -93,8 +93,13 @@ func (f *Flowchart) AddSubgraph(title string) (newSubgraph *Subgraph) {
 	return
 }
 
-// AddNode adds a new node to the flowchart and returns the created node.
-func (f *Flowchart) AddNode(text string) (newNode *Node) {
+// AddNode adds a given node to the flowchart.
+func (f *Flowchart) AddNode(node *Node) {
+	f.nodes = append(f.nodes, node)
+}
+
+// NewNode adds a new node to the flowchart and returns the created node.
+func (f *Flowchart) NewNode(text string) (newNode *Node) {
 	newNode = NewNode(f.idGenerator.NextID(), text)
 
 	f.nodes = append(f.nodes, newNode)
@@ -102,8 +107,13 @@ func (f *Flowchart) AddNode(text string) (newNode *Node) {
 	return
 }
 
-// AddLink adds a new link between two nodes in the flowchart and returns the created link.
-func (f *Flowchart) AddLink(from *Node, to *Node) (newLink *Link) {
+// AddLink adds a link between two nodes to the flowchart.
+func (f *Flowchart) AddLink(link *Link) {
+	f.links = append(f.links, link)
+}
+
+// NewLink adds a new link between two nodes in the flowchart and returns the created link.
+func (f *Flowchart) NewLink(from *Node, to *Node) (newLink *Link) {
 	newLink = NewLink(from, to)
 
 	f.links = append(f.links, newLink)
