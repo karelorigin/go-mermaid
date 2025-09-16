@@ -14,47 +14,47 @@ func main() {
 	diagram.SetTitle("Software Development Process")
 
 	// Define nodes with various shapes
-	start := diagram.AddNode("Start Project")
+	start := diagram.NewNode("Start Project")
 	start.SetShape(flowchart.NodeShapeTerminal)
 
-	requirements := diagram.AddNode("Gather Requirements")
+	requirements := diagram.NewNode("Gather Requirements")
 	requirements.SetShape(flowchart.NodeShapeDocument)
 
-	design := diagram.AddNode("System Design")
+	design := diagram.NewNode("System Design")
 	design.SetShape(flowchart.NodeShapeProcess)
 
-	database := diagram.AddNode("Database Design")
+	database := diagram.NewNode("Database Design")
 	database.SetShape(flowchart.NodeShapeDatabase)
 
-	coding := diagram.AddNode("Implementation")
+	coding := diagram.NewNode("Implementation")
 	coding.SetShape(flowchart.NodeShapeProcess)
 
-	testing := diagram.AddNode("Testing")
+	testing := diagram.NewNode("Testing")
 	testing.SetShape(flowchart.NodeShapePrepare)
 
-	bugs := diagram.AddNode("Bugs Found?")
+	bugs := diagram.NewNode("Bugs Found?")
 	bugs.SetShape(flowchart.NodeShapeDecision)
 
-	deploy := diagram.AddNode("Deployment")
+	deploy := diagram.NewNode("Deployment")
 	deploy.SetShape(flowchart.NodeShapeInternalStorage)
 
-	monitor := diagram.AddNode("Monitoring")
+	monitor := diagram.NewNode("Monitoring")
 	monitor.SetShape(flowchart.NodeShapeDisplay)
 
-	end := diagram.AddNode("End")
+	end := diagram.NewNode("End")
 	end.SetShape(flowchart.NodeShapeTerminal)
 
 	// Add links
-	diagram.AddLink(start, requirements)
-	diagram.AddLink(requirements, design)
-	diagram.AddLink(design, database)
-	diagram.AddLink(database, coding)
-	diagram.AddLink(coding, testing)
-	diagram.AddLink(testing, bugs)
-	diagram.AddLink(bugs, coding)
-	diagram.AddLink(bugs, deploy)
-	diagram.AddLink(deploy, monitor)
-	diagram.AddLink(monitor, end)
+	diagram.NewLink(start, requirements)
+	diagram.NewLink(requirements, design)
+	diagram.NewLink(design, database)
+	diagram.NewLink(database, coding)
+	diagram.NewLink(coding, testing)
+	diagram.NewLink(testing, bugs)
+	diagram.NewLink(bugs, coding)
+	diagram.NewLink(bugs, deploy)
+	diagram.NewLink(deploy, monitor)
+	diagram.NewLink(monitor, end)
 
 	// Write the diagram to README.md
 	_, filename, _, _ := runtime.Caller(0)

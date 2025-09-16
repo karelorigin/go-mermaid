@@ -90,10 +90,10 @@ func TestFlowchart_String(t *testing.T) {
 			name: "Flowchart with multiple elements",
 			setup: func(f *Flowchart) {
 				f.AddClass("myClass")
-				node1 := f.AddNode("My Node 1")
-				node2 := f.AddNode("My Node 2")
+				node1 := f.NewNode("My Node 1")
+				node2 := f.NewNode("My Node 2")
 				f.AddSubgraph("My Subgraph")
-				f.AddLink(node1, node2)
+				f.NewLink(node1, node2)
 			},
 			contains: []string{
 				"flowchart TB",
@@ -119,7 +119,7 @@ func TestFlowchart_String(t *testing.T) {
 	}
 }
 
-func TestFlowchart_AddNode(t *testing.T) {
+func TestFlowchart_NewNode(t *testing.T) {
 	tests := []struct {
 		name      string
 		flowchart *Flowchart
@@ -140,10 +140,10 @@ func TestFlowchart_AddNode(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := tt.flowchart.AddNode(tt.text)
+			got := tt.flowchart.NewNode(tt.text)
 
 			if !reflect.DeepEqual(got, tt.wantNode) {
-				t.Errorf("AddNode() = %v, want %v", got, tt.wantNode)
+				t.Errorf("NewNode() = %v, want %v", got, tt.wantNode)
 			}
 
 			if len(tt.flowchart.nodes) != 1 || !reflect.DeepEqual(tt.flowchart.nodes[0], got) {
@@ -164,8 +164,8 @@ func TestFlowchart_AddLink(t *testing.T) {
 			name:      "Add simple link",
 			flowchart: NewFlowchart(),
 			setup: func(f *Flowchart) (*Node, *Node) {
-				from := f.AddNode("Start")
-				to := f.AddNode("End")
+				from := f.NewNode("Start")
+				to := f.NewNode("End")
 				return from, to
 			},
 			wantLink: &Link{
@@ -180,7 +180,7 @@ func TestFlowchart_AddLink(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			from, to := tt.setup(tt.flowchart)
-			got := tt.flowchart.AddLink(from, to)
+			got := tt.flowchart.NewLink(from, to)
 
 			// Update expected link with actual nodes
 			tt.wantLink.From = from
@@ -250,7 +250,7 @@ func TestFlowchart_AddClass(t *testing.T) {
 func TestFlowchart_SetDirection(t *testing.T) {
 	tests := []struct {
 		name      string
-		direction flowchartDirection
+		direction FlowchartDirection
 	}{
 		{"Top to Bottom", FlowchartDirectionTopToBottom},
 		{"Left to Right", FlowchartDirectionLeftRight},

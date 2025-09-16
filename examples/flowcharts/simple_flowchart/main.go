@@ -15,31 +15,31 @@ func main() {
 	diagram.SetTitle("Simple Process Flow")
 
 	// Add nodes with different shapes
-	start := diagram.AddNode("Start")
+	start := diagram.NewNode("Start")
 	start.SetShape(flowchart.NodeShapeTerminal)
 
-	input := diagram.AddNode("Get User Input")
+	input := diagram.NewNode("Get User Input")
 	input.SetShape(flowchart.NodeShapeManualInput)
 
-	process := diagram.AddNode("Process Data")
+	process := diagram.NewNode("Process Data")
 	process.SetShape(flowchart.NodeShapeProcess)
 
-	decision := diagram.AddNode("Valid?")
+	decision := diagram.NewNode("Valid?")
 	decision.SetShape(flowchart.NodeShapeDecision)
 
-	output := diagram.AddNode("Display Result")
+	output := diagram.NewNode("Display Result")
 	output.SetShape(flowchart.NodeShapeDisplay)
 
-	end := diagram.AddNode("End")
+	end := diagram.NewNode("End")
 	end.SetShape(flowchart.NodeShapeTerminal)
 
 	// Add links between nodes
-	diagram.AddLink(start, input)
-	diagram.AddLink(input, process)
-	diagram.AddLink(process, decision)
-	diagram.AddLink(decision, output)
-	diagram.AddLink(decision, input)
-	diagram.AddLink(output, end)
+	diagram.NewLink(start, input)
+	diagram.NewLink(input, process)
+	diagram.NewLink(process, decision)
+	diagram.NewLink(decision, output)
+	diagram.NewLink(decision, input)
+	diagram.NewLink(output, end)
 
 	// Write the diagram to README.md
 	_, filename, _, _ := runtime.Caller(0)

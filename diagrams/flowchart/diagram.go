@@ -9,35 +9,38 @@ import (
 	"github.com/TyphonHill/go-mermaid/diagrams/utils/basediagram"
 )
 
-type flowchartDirection string
-type curveStyle string
+// FlowChartDirection represents the direction of a flowchart.
+type FlowchartDirection string
+
+// CurveStyle represents a curve style.
+type CurveStyle string
 
 // List of possible Flowchart directions.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#direction
 const (
-	FlowchartDirectionTopToBottom flowchartDirection = "TB"
-	FlowchartDirectionTopDown     flowchartDirection = "TD"
-	FlowchartDirectionBottomUp    flowchartDirection = "BT"
-	FlowchartDirectionRightLeft   flowchartDirection = "RL"
-	FlowchartDirectionLeftRight   flowchartDirection = "LR"
+	FlowchartDirectionTopToBottom FlowchartDirection = "TB"
+	FlowchartDirectionTopDown     FlowchartDirection = "TD"
+	FlowchartDirectionBottomUp    FlowchartDirection = "BT"
+	FlowchartDirectionRightLeft   FlowchartDirection = "RL"
+	FlowchartDirectionLeftRight   FlowchartDirection = "LR"
 )
 
 // List of possible Flowchart directions.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#styling-line-curves
 const (
-	CurveStyleNone       curveStyle = ""
-	CurveStyleBasis      curveStyle = "basis"
-	CurveStyleBumpX      curveStyle = "bumpX"
-	CurveStyleBumpY      curveStyle = "bumpY"
-	CurveStyleCardinal   curveStyle = "cardinal"
-	CurveStyleCatmullRom curveStyle = "catmullRom"
-	CurveStyleLinear     curveStyle = "linear"
-	CurveStyleMonotoneX  curveStyle = "monotoneX"
-	CurveStyleMonotoneY  curveStyle = "monotoneY"
-	CurveStyleNatural    curveStyle = "natural"
-	CurveStyleStep       curveStyle = "step"
-	CurveStyleStepAfter  curveStyle = "stepAfter"
-	CurveStyleStepBefore curveStyle = "stepBefore"
+	CurveStyleNone       CurveStyle = ""
+	CurveStyleBasis      CurveStyle = "basis"
+	CurveStyleBumpX      CurveStyle = "bumpX"
+	CurveStyleBumpY      CurveStyle = "bumpY"
+	CurveStyleCardinal   CurveStyle = "cardinal"
+	CurveStyleCatmullRom CurveStyle = "catmullRom"
+	CurveStyleLinear     CurveStyle = "linear"
+	CurveStyleMonotoneX  CurveStyle = "monotoneX"
+	CurveStyleMonotoneY  CurveStyle = "monotoneY"
+	CurveStyleNatural    CurveStyle = "natural"
+	CurveStyleStep       CurveStyle = "step"
+	CurveStyleStepAfter  CurveStyle = "stepAfter"
+	CurveStyleStepBefore CurveStyle = "stepBefore"
 )
 
 const (
@@ -50,8 +53,8 @@ const (
 // Reference: https://mermaid.js.org/syntax/flowchart.html
 type Flowchart struct {
 	basediagram.BaseDiagram[FlowchartConfigurationProperties]
-	Direction   flowchartDirection
-	CurveStyle  curveStyle
+	Direction   FlowchartDirection
+	CurveStyle  CurveStyle
 	classes     []*Class
 	nodes       []*Node
 	subgraphs   []*Subgraph
@@ -74,7 +77,7 @@ func NewFlowchart() *Flowchart {
 }
 
 // SetDirection sets the flowchart direction and returns the flowchart for chaining
-func (f *Flowchart) SetDirection(direction flowchartDirection) *Flowchart {
+func (f *Flowchart) SetDirection(direction FlowchartDirection) *Flowchart {
 	f.Direction = direction
 	return f
 }
