@@ -13,6 +13,7 @@ const (
 	baseNodeStyleStrokeDashString  string = "stroke-dasharray:%s"
 )
 
+// NodeStyle represents a node style.
 type NodeStyle struct {
 	Color       string
 	Fill        string

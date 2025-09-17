@@ -7,57 +7,58 @@ import (
 	"github.com/TyphonHill/go-mermaid/diagrams/utils/basediagram"
 )
 
-type nodeShape string
+// NodeShape represents a node shape.
+type NodeShape string
 
 // List of possible Node shapes.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#complete-list-of-new-shapes
 const (
 	// Basic shapes
-	NodeShapeProcess          nodeShape = `rect`       // Process (Rectangle)
-	NodeShapeEvent            nodeShape = `rounded`    // Event (Rounded rectangle)
-	NodeShapeTerminal         nodeShape = `stadium`    // Terminal (Stadium-shaped)
-	NodeShapeSubprocess       nodeShape = `fr-rect`    // Subprocess (Framed rectangle)
-	NodeShapeDatabase         nodeShape = `cyl`        // Database (Cylinder)
-	NodeShapeStart            nodeShape = `circle`     // Start (Circle)
-	NodeShapeOdd              nodeShape = `odd`        // Odd shape (Asymmetric)
-	NodeShapeDecision         nodeShape = `diam`       // Decision (Diamond)
-	NodeShapePrepare          nodeShape = `hex`        // Prepare (Hexagon)
-	NodeShapeInputOutput      nodeShape = `lean-r`     // Input/Output (Parallelogram)
-	NodeShapeOutputInput      nodeShape = `lean-l`     // Output/Input (Alt Parallelogram)
-	NodeShapeManualOperation  nodeShape = `trap-b`     // Manual Operation (Trapezoid)
-	NodeShapeManual           nodeShape = `trap-t`     // Manual (Alt Trapezoid)
-	NodeShapeStopDouble       nodeShape = `dbl-circ`   // Stop (Double Circle)
-	NodeShapeText             nodeShape = `text`       // Text block
-	NodeShapeCard             nodeShape = `notch-rect` // Card
-	NodeShapeLinedProcess     nodeShape = `lin-rect`   // Lined Process (Rectangle with shadow)
-	NodeShapeStartSmall       nodeShape = `sm-circ`    // Start (Small circle)
-	NodeShapeStopFramed       nodeShape = `fr-circ`    // Stop (Circle with frame)
-	NodeShapeForkJoin         nodeShape = `fork`       // Fork/Join
-	NodeShapeCollate          nodeShape = `hourglass`  // Collate (Hourglass)
-	NodeShapeComment          nodeShape = `brace`      // Comment (Left brace)
-	NodeShapeCommentRight     nodeShape = `brace-r`    // Comment Right (Right brace)
-	NodeShapeCommentBothSides nodeShape = `braces`     // Comment (Both braces)
-	NodeShapeComLink          nodeShape = `bolt`       // Com Link (Lightning bolt)
-	NodeShapeDocument         nodeShape = `doc`        // Document
-	NodeShapeDelay            nodeShape = `delay`      // Delay
-	NodeShapeStorage          nodeShape = `h-cyl`      // Storage (Horizontal cylinder)
-	NodeShapeDiskStorage      nodeShape = `lin-cyl`    // Disk Storage (Lined cylinder)
-	NodeShapeDisplay          nodeShape = `curv-trap`  // Display (Curved trapezoid)
-	NodeShapeDividedProcess   nodeShape = `div-rect`   // Divided Process
-	NodeShapeExtract          nodeShape = `tri`        // Extract (Triangle)
-	NodeShapeInternalStorage  nodeShape = `win-pane`   // Internal Storage
-	NodeShapeJunction         nodeShape = `f-circ`     // Junction (Filled circle)
-	NodeShapeLinedDocument    nodeShape = `lin-doc`    // Lined Document
-	NodeShapeLoopLimit        nodeShape = `notch-pent` // Loop Limit
-	NodeShapeManualFile       nodeShape = `flip-tri`   // Manual File
-	NodeShapeManualInput      nodeShape = `sl-rect`    // Manual Input (Sloped rectangle)
-	NodeShapeMultiDocument    nodeShape = `docs`       // Multi-Document
-	NodeShapeMultiProcess     nodeShape = `st-rect`    // Multi-Process
-	NodeShapePaperTape        nodeShape = `flag`       // Paper Tape
-	NodeShapeStoredData       nodeShape = `bow-rect`   // Stored Data
-	NodeShapeSummary          nodeShape = `cross-circ` // Summary (Circle with cross)
-	NodeShapeTaggedDocument   nodeShape = `tag-doc`    // Tagged Document
-	NodeShapeTaggedProcess    nodeShape = `tag-rect`   // Tagged Process
+	NodeShapeProcess          NodeShape = `rect`       // Process (Rectangle)
+	NodeShapeEvent            NodeShape = `rounded`    // Event (Rounded rectangle)
+	NodeShapeTerminal         NodeShape = `stadium`    // Terminal (Stadium-shaped)
+	NodeShapeSubprocess       NodeShape = `fr-rect`    // Subprocess (Framed rectangle)
+	NodeShapeDatabase         NodeShape = `cyl`        // Database (Cylinder)
+	NodeShapeStart            NodeShape = `circle`     // Start (Circle)
+	NodeShapeOdd              NodeShape = `odd`        // Odd shape (Asymmetric)
+	NodeShapeDecision         NodeShape = `diam`       // Decision (Diamond)
+	NodeShapePrepare          NodeShape = `hex`        // Prepare (Hexagon)
+	NodeShapeInputOutput      NodeShape = `lean-r`     // Input/Output (Parallelogram)
+	NodeShapeOutputInput      NodeShape = `lean-l`     // Output/Input (Alt Parallelogram)
+	NodeShapeManualOperation  NodeShape = `trap-b`     // Manual Operation (Trapezoid)
+	NodeShapeManual           NodeShape = `trap-t`     // Manual (Alt Trapezoid)
+	NodeShapeStopDouble       NodeShape = `dbl-circ`   // Stop (Double Circle)
+	NodeShapeText             NodeShape = `text`       // Text block
+	NodeShapeCard             NodeShape = `notch-rect` // Card
+	NodeShapeLinedProcess     NodeShape = `lin-rect`   // Lined Process (Rectangle with shadow)
+	NodeShapeStartSmall       NodeShape = `sm-circ`    // Start (Small circle)
+	NodeShapeStopFramed       NodeShape = `fr-circ`    // Stop (Circle with frame)
+	NodeShapeForkJoin         NodeShape = `fork`       // Fork/Join
+	NodeShapeCollate          NodeShape = `hourglass`  // Collate (Hourglass)
+	NodeShapeComment          NodeShape = `brace`      // Comment (Left brace)
+	NodeShapeCommentRight     NodeShape = `brace-r`    // Comment Right (Right brace)
+	NodeShapeCommentBothSides NodeShape = `braces`     // Comment (Both braces)
+	NodeShapeComLink          NodeShape = `bolt`       // Com Link (Lightning bolt)
+	NodeShapeDocument         NodeShape = `doc`        // Document
+	NodeShapeDelay            NodeShape = `delay`      // Delay
+	NodeShapeStorage          NodeShape = `h-cyl`      // Storage (Horizontal cylinder)
+	NodeShapeDiskStorage      NodeShape = `lin-cyl`    // Disk Storage (Lined cylinder)
+	NodeShapeDisplay          NodeShape = `curv-trap`  // Display (Curved trapezoid)
+	NodeShapeDividedProcess   NodeShape = `div-rect`   // Divided Process
+	NodeShapeExtract          NodeShape = `tri`        // Extract (Triangle)
+	NodeShapeInternalStorage  NodeShape = `win-pane`   // Internal Storage
+	NodeShapeJunction         NodeShape = `f-circ`     // Junction (Filled circle)
+	NodeShapeLinedDocument    NodeShape = `lin-doc`    // Lined Document
+	NodeShapeLoopLimit        NodeShape = `notch-pent` // Loop Limit
+	NodeShapeManualFile       NodeShape = `flip-tri`   // Manual File
+	NodeShapeManualInput      NodeShape = `sl-rect`    // Manual Input (Sloped rectangle)
+	NodeShapeMultiDocument    NodeShape = `docs`       // Multi-Document
+	NodeShapeMultiProcess     NodeShape = `st-rect`    // Multi-Process
+	NodeShapePaperTape        NodeShape = `flag`       // Paper Tape
+	NodeShapeStoredData       NodeShape = `bow-rect`   // Stored Data
+	NodeShapeSummary          NodeShape = `cross-circ` // Summary (Circle with cross)
+	NodeShapeTaggedDocument   NodeShape = `tag-doc`    // Tagged Document
+	NodeShapeTaggedProcess    NodeShape = `tag-rect`   // Tagged Process
 )
 
 const (
@@ -69,7 +70,7 @@ const (
 // Node represents a node in a flowchart
 type Node struct {
 	ID    string
-	Shape nodeShape
+	Shape NodeShape
 	Text  string
 	Style *NodeStyle
 	Class *Class
@@ -105,7 +106,7 @@ func (n *Node) SetStyle(style *NodeStyle) *Node {
 }
 
 // SetShape sets the node shape and returns the node for chaining
-func (n *Node) SetShape(shape nodeShape) *Node {
+func (n *Node) SetShape(shape NodeShape) *Node {
 	n.Shape = shape
 	return n
 }

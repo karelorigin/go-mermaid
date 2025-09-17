@@ -116,7 +116,7 @@ func TestLink_String(t *testing.T) {
 				Tail: LinkArrowTypeNone,
 			},
 			setup: func(l *Link) {
-				shapes := []linkShape{
+				shapes := []LinkShape{
 					LinkShapeOpen,
 					LinkShapeDotted,
 					LinkShapeThick,
@@ -139,7 +139,7 @@ func TestLink_String(t *testing.T) {
 				Shape: LinkShapeOpen,
 			},
 			setup: func(l *Link) {
-				arrowTypes := []linkArrowType{
+				arrowTypes := []LinkArrowType{
 					LinkArrowTypeNone,
 					LinkArrowTypeArrow,
 					LinkArrowTypeLeftArrow,

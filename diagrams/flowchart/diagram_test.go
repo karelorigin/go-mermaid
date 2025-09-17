@@ -290,7 +290,7 @@ func TestLink_SetText(t *testing.T) {
 func TestLink_SetShape(t *testing.T) {
 	tests := []struct {
 		name  string
-		shape linkShape
+		shape LinkShape
 	}{
 		{"Open", LinkShapeOpen},
 		{"Dotted", LinkShapeDotted},
@@ -330,7 +330,7 @@ func TestLink_SetLength(t *testing.T) {
 func TestLink_SetHead(t *testing.T) {
 	tests := []struct {
 		name      string
-		arrowType linkArrowType
+		arrowType LinkArrowType
 	}{
 		{"None", LinkArrowTypeNone},
 		{"Arrow", LinkArrowTypeArrow},
@@ -358,7 +358,7 @@ func TestLink_SetHead(t *testing.T) {
 func TestLink_SetTail(t *testing.T) {
 	tests := []struct {
 		name      string
-		arrowType linkArrowType
+		arrowType LinkArrowType
 	}{
 		{"None", LinkArrowTypeNone},
 		{"Arrow", LinkArrowTypeArrow},

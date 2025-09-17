@@ -6,18 +6,19 @@ import (
 	"github.com/TyphonHill/go-mermaid/diagrams/utils/basediagram"
 )
 
+// A set of flowchart property constants.
 const (
-	baseFlowchartConfigurationProperties string = basediagram.Indentation + "flowchart:\n"
-	flowchartPropertyTitleTopMargin      string = "titleTopMargin"
-	flowchartPropertyDiagramPadding      string = "diagramPadding"
-	flowchartPropertyHtmlLabels          string = "htmlLabels"
-	flowchartPropertyNodeSpacing         string = "nodeSpacing"
-	flowchartPropertyRankSpacing         string = "rankSpacing"
-	flowchartPropertyCurve               string = "curve"
-	flowchartPropertyPadding             string = "padding"
-	flowchartPropertyDefaultRenderer     string = "defaultRenderer"
-	flowchartPropertyWrappingWidth       string = "wrappingWidth"
-	flowchartPropertyArrowMarkerAbsolute string = "arrowMarkerAbsolute"
+	BaseFlowchartConfigurationProperties string = basediagram.Indentation + "flowchart:\n"
+	FlowchartPropertyTitleTopMargin      string = "titleTopMargin"
+	FlowchartPropertyDiagramPadding      string = "diagramPadding"
+	FlowchartPropertyHtmlLabels          string = "htmlLabels"
+	FlowchartPropertyNodeSpacing         string = "nodeSpacing"
+	FlowchartPropertyRankSpacing         string = "rankSpacing"
+	FlowchartPropertyCurve               string = "curve"
+	FlowchartPropertyPadding             string = "padding"
+	FlowchartPropertyDefaultRenderer     string = "defaultRenderer"
+	FlowchartPropertyWrappingWidth       string = "wrappingWidth"
+	FlowchartPropertyArrowMarkerAbsolute string = "arrowMarkerAbsolute"
 )
 
 // FlowchartConfigurationProperties holds flowchart-specific configuration
@@ -34,9 +35,9 @@ func NewFlowchartConfigurationProperties() FlowchartConfigurationProperties {
 }
 
 func (c *FlowchartConfigurationProperties) SetTitleTopMargin(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyTitleTopMargin] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyTitleTopMargin] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyTitleTopMargin,
+			Name: FlowchartPropertyTitleTopMargin,
 			Val:  v,
 		},
 	}
@@ -44,9 +45,9 @@ func (c *FlowchartConfigurationProperties) SetTitleTopMargin(v int) *FlowchartCo
 }
 
 func (c *FlowchartConfigurationProperties) SetDiagramPadding(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyDiagramPadding] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyDiagramPadding] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyDiagramPadding,
+			Name: FlowchartPropertyDiagramPadding,
 			Val:  v,
 		},
 	}
@@ -54,9 +55,9 @@ func (c *FlowchartConfigurationProperties) SetDiagramPadding(v int) *FlowchartCo
 }
 
 func (c *FlowchartConfigurationProperties) SetHtmlLabels(v bool) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyHtmlLabels] = &basediagram.BoolProperty{
+	c.properties[FlowchartPropertyHtmlLabels] = &basediagram.BoolProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyHtmlLabels,
+			Name: FlowchartPropertyHtmlLabels,
 			Val:  v,
 		},
 	}
@@ -64,9 +65,9 @@ func (c *FlowchartConfigurationProperties) SetHtmlLabels(v bool) *FlowchartConfi
 }
 
 func (c *FlowchartConfigurationProperties) SetNodeSpacing(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyNodeSpacing] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyNodeSpacing] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyNodeSpacing,
+			Name: FlowchartPropertyNodeSpacing,
 			Val:  v,
 		},
 	}
@@ -74,9 +75,9 @@ func (c *FlowchartConfigurationProperties) SetNodeSpacing(v int) *FlowchartConfi
 }
 
 func (c *FlowchartConfigurationProperties) SetRankSpacing(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyRankSpacing] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyRankSpacing] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyRankSpacing,
+			Name: FlowchartPropertyRankSpacing,
 			Val:  v,
 		},
 	}
@@ -84,9 +85,9 @@ func (c *FlowchartConfigurationProperties) SetRankSpacing(v int) *FlowchartConfi
 }
 
 func (c *FlowchartConfigurationProperties) SetCurve(v string) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyCurve] = &basediagram.StringProperty{
+	c.properties[FlowchartPropertyCurve] = &basediagram.StringProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyCurve,
+			Name: FlowchartPropertyCurve,
 			Val:  v,
 		},
 	}
@@ -94,9 +95,9 @@ func (c *FlowchartConfigurationProperties) SetCurve(v string) *FlowchartConfigur
 }
 
 func (c *FlowchartConfigurationProperties) SetPadding(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyPadding] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyPadding] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyPadding,
+			Name: FlowchartPropertyPadding,
 			Val:  v,
 		},
 	}
@@ -104,9 +105,9 @@ func (c *FlowchartConfigurationProperties) SetPadding(v int) *FlowchartConfigura
 }
 
 func (c *FlowchartConfigurationProperties) SetDefaultRenderer(v string) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyDefaultRenderer] = &basediagram.StringProperty{
+	c.properties[FlowchartPropertyDefaultRenderer] = &basediagram.StringProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyDefaultRenderer,
+			Name: FlowchartPropertyDefaultRenderer,
 			Val:  v,
 		},
 	}
@@ -114,9 +115,9 @@ func (c *FlowchartConfigurationProperties) SetDefaultRenderer(v string) *Flowcha
 }
 
 func (c *FlowchartConfigurationProperties) SetWrappingWidth(v int) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyWrappingWidth] = &basediagram.IntProperty{
+	c.properties[FlowchartPropertyWrappingWidth] = &basediagram.IntProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyWrappingWidth,
+			Name: FlowchartPropertyWrappingWidth,
 			Val:  v,
 		},
 	}
@@ -124,9 +125,9 @@ func (c *FlowchartConfigurationProperties) SetWrappingWidth(v int) *FlowchartCon
 }
 
 func (c *FlowchartConfigurationProperties) SetArrowMarkerAbsolute(v bool) *FlowchartConfigurationProperties {
-	c.properties[flowchartPropertyArrowMarkerAbsolute] = &basediagram.BoolProperty{
+	c.properties[FlowchartPropertyArrowMarkerAbsolute] = &basediagram.BoolProperty{
 		BaseProperty: basediagram.BaseProperty{
-			Name: flowchartPropertyArrowMarkerAbsolute,
+			Name: FlowchartPropertyArrowMarkerAbsolute,
 			Val:  v,
 		},
 	}
@@ -138,7 +139,7 @@ func (c FlowchartConfigurationProperties) String() string {
 	sb.WriteString(c.ConfigurationProperties.String())
 
 	if len(c.properties) > 0 {
-		sb.WriteString(baseFlowchartConfigurationProperties)
+		sb.WriteString(BaseFlowchartConfigurationProperties)
 		for _, prop := range c.properties {
 			sb.WriteString(prop.Format())
 		}

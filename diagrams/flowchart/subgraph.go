@@ -8,30 +8,33 @@ import (
 	"github.com/TyphonHill/go-mermaid/diagrams/utils/basediagram"
 )
 
+// A list of subgraph constants.
 const (
-	baseSubgraphString          string = basediagram.Indentation + "subgraph %s [%s]\n"
-	baseSubgraphDirectionString string = basediagram.Indentation + "direction %s\n"
-	baseSubgraphEndString       string = basediagram.Indentation + "end\n"
-	baseSubgraphLinkString      string = basediagram.Indentation + "%s"
-	baseSubgraphSubgraphString  string = basediagram.Indentation + "%s"
+	BaseSubgraphString          string = basediagram.Indentation + "subgraph %s [%s]\n"
+	BaseSubgraphDirectionString string = basediagram.Indentation + "direction %s\n"
+	BaseSubgraphEndString       string = basediagram.Indentation + "end\n"
+	BaseSubgraphLinkString      string = basediagram.Indentation + "%s"
+	BaseSubgraphSubgraphString  string = basediagram.Indentation + "%s"
 )
 
 // List of possible Subgraph directions.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#direction
 const (
-	SubgraphDirectionNone        subgraphDirection = ""
-	SubgraphDirectionTopToBottom subgraphDirection = "TB"
-	SubgraphDirectionBottomUp    subgraphDirection = "BT"
-	SubgraphDirectionRightLeft   subgraphDirection = "RL"
-	SubgraphDirectionLeftRight   subgraphDirection = "LR"
+	SubgraphDirectionNone        SubgraphDirection = ""
+	SubgraphDirectionTopToBottom SubgraphDirection = "TB"
+	SubgraphDirectionBottomUp    SubgraphDirection = "BT"
+	SubgraphDirectionRightLeft   SubgraphDirection = "RL"
+	SubgraphDirectionLeftRight   SubgraphDirection = "LR"
 )
 
-type subgraphDirection string
+// SubgraphDirection represents a subgraph direction.
+type SubgraphDirection string
 
+// Subgraph represents a subgraph.
 type Subgraph struct {
 	ID          string
 	Title       string
-	Direction   subgraphDirection
+	Direction   SubgraphDirection
 	subgraphs   []*Subgraph
 	links       []*Link
 	idGenerator utils.IDGenerator
@@ -77,25 +80,25 @@ func (s *Subgraph) AddLink(from *Node, to *Node) (newLink *Link) {
 func (s *Subgraph) String(curIndentation string) string {
 	var sb strings.Builder
 
-	sb.WriteString(fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(baseSubgraphString), s.ID, s.Title)))
+	sb.WriteString(fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(BaseSubgraphString), s.ID, s.Title)))
 
 	direction := ""
 	if s.Direction != SubgraphDirectionNone {
-		direction = fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(baseSubgraphDirectionString), string(s.Direction)))
+		direction = fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(BaseSubgraphDirectionString), string(s.Direction)))
 	}
 
 	sb.WriteString(direction)
 
 	for _, subgraph := range s.subgraphs {
-		nextIndentation := fmt.Sprintf(string(baseSubgraphSubgraphString), string(curIndentation))
+		nextIndentation := fmt.Sprintf(string(BaseSubgraphSubgraphString), string(curIndentation))
 		sb.WriteString(subgraph.String(nextIndentation))
 	}
 
 	for _, link := range s.links {
-		sb.WriteString(fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(baseSubgraphLinkString), link.String())))
+		sb.WriteString(fmt.Sprintf(string(curIndentation), fmt.Sprintf(string(BaseSubgraphLinkString), link.String())))
 	}
 
-	sb.WriteString(fmt.Sprintf(string(curIndentation), baseSubgraphEndString))
+	sb.WriteString(fmt.Sprintf(string(curIndentation), BaseSubgraphEndString))
 
 	return sb.String()
 }

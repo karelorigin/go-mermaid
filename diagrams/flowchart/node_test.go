@@ -168,8 +168,8 @@ func TestNode_SetStyle(t *testing.T) {
 func TestNode_SetShape(t *testing.T) {
 	tests := []struct {
 		name      string
-		shape     nodeShape
-		wantShape nodeShape
+		shape     NodeShape
+		wantShape NodeShape
 	}{
 		{
 			name:      "Set to terminal shape",

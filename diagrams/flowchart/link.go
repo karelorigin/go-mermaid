@@ -7,26 +7,29 @@ import (
 	"github.com/TyphonHill/go-mermaid/diagrams/utils/basediagram"
 )
 
-type linkShape string
-type linkArrowType string
+// LinkShape represents a link shape.
+type LinkShape string
+
+// LinkArrowType represents a link arrow type.
+type LinkArrowType string
 
 // List of possible Link shapes.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#links-between-nodes
 const (
-	LinkShapeOpen      linkShape = "--%s"
-	LinkShapeDotted    linkShape = "-.%s-"
-	LinkShapeThick     linkShape = "==%s"
-	LinkShapeInvisible linkShape = "~~%s"
+	LinkShapeOpen      LinkShape = "--%s"
+	LinkShapeDotted    LinkShape = "-.%s-"
+	LinkShapeThick     LinkShape = "==%s"
+	LinkShapeInvisible LinkShape = "~~%s"
 )
 
 // List of possible Link arrow types.
 // Reference: https://mermaid.js.org/syntax/flowchart.html#links-between-nodes
 const (
-	LinkArrowTypeNone      linkArrowType = ""
-	LinkArrowTypeArrow     linkArrowType = ">"
-	LinkArrowTypeLeftArrow linkArrowType = "<"
-	LinkArrowTypeBullet    linkArrowType = "o"
-	LinkArrowTypeCross     linkArrowType = "x"
+	LinkArrowTypeNone      LinkArrowType = ""
+	LinkArrowTypeArrow     LinkArrowType = ">"
+	LinkArrowTypeLeftArrow LinkArrowType = "<"
+	LinkArrowTypeBullet    LinkArrowType = "o"
+	LinkArrowTypeCross     LinkArrowType = "x"
 )
 
 const (
@@ -36,9 +39,9 @@ const (
 
 // Link represents a connection between nodes in a flowchart
 type Link struct {
-	Shape  linkShape
-	Head   linkArrowType
-	Tail   linkArrowType
+	Shape  LinkShape
+	Head   LinkArrowType
+	Tail   LinkArrowType
 	Text   string
 	From   *Node
 	To     *Node
@@ -66,7 +69,7 @@ func (l *Link) SetText(text string) *Link {
 }
 
 // SetShape sets the link shape and returns the link for chaining
-func (l *Link) SetShape(shape linkShape) *Link {
+func (l *Link) SetShape(shape LinkShape) *Link {
 	l.Shape = shape
 	return l
 }
@@ -78,13 +81,13 @@ func (l *Link) SetLength(length int) *Link {
 }
 
 // SetHead sets the head arrow type and returns the link for chaining
-func (l *Link) SetHead(arrowType linkArrowType) *Link {
+func (l *Link) SetHead(arrowType LinkArrowType) *Link {
 	l.Head = arrowType
 	return l
 }
 
 // SetTail sets the tail arrow type and returns the link for chaining
-func (l *Link) SetTail(arrowType linkArrowType) *Link {
+func (l *Link) SetTail(arrowType LinkArrowType) *Link {
 	l.Tail = arrowType
 	return l
 }

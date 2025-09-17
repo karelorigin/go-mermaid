@@ -103,7 +103,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetTitleTopMargin(10)
 			},
-			property: flowchartPropertyTitleTopMargin,
+			property: FlowchartPropertyTitleTopMargin,
 			value:    10,
 		},
 		{
@@ -111,7 +111,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetDiagramPadding(20)
 			},
-			property: flowchartPropertyDiagramPadding,
+			property: FlowchartPropertyDiagramPadding,
 			value:    20,
 		},
 		{
@@ -119,7 +119,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetHtmlLabels(true)
 			},
-			property: flowchartPropertyHtmlLabels,
+			property: FlowchartPropertyHtmlLabels,
 			value:    true,
 		},
 		{
@@ -127,7 +127,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetNodeSpacing(50)
 			},
-			property: flowchartPropertyNodeSpacing,
+			property: FlowchartPropertyNodeSpacing,
 			value:    50,
 		},
 		{
@@ -135,7 +135,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetRankSpacing(30)
 			},
-			property: flowchartPropertyRankSpacing,
+			property: FlowchartPropertyRankSpacing,
 			value:    30,
 		},
 		{
@@ -143,7 +143,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetCurve("basis")
 			},
-			property: flowchartPropertyCurve,
+			property: FlowchartPropertyCurve,
 			value:    "basis",
 		},
 		{
@@ -151,7 +151,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetPadding(10)
 			},
-			property: flowchartPropertyPadding,
+			property: FlowchartPropertyPadding,
 			value:    10,
 		},
 		{
@@ -159,7 +159,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetDefaultRenderer("dagre")
 			},
-			property: flowchartPropertyDefaultRenderer,
+			property: FlowchartPropertyDefaultRenderer,
 			value:    "dagre",
 		},
 		{
@@ -167,7 +167,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetWrappingWidth(100)
 			},
-			property: flowchartPropertyWrappingWidth,
+			property: FlowchartPropertyWrappingWidth,
 			value:    100,
 		},
 		{
@@ -175,7 +175,7 @@ func TestFlowchartConfigurationProperties_Setters(t *testing.T) {
 			setup: func(c *FlowchartConfigurationProperties) *FlowchartConfigurationProperties {
 				return c.SetArrowMarkerAbsolute(true)
 			},
-			property: flowchartPropertyArrowMarkerAbsolute,
+			property: FlowchartPropertyArrowMarkerAbsolute,
 			value:    true,
 		},
 	}
