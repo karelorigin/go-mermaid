@@ -115,7 +115,7 @@ func (n *Node) SetShape(shape NodeShape) *Node {
 func (n *Node) String() string {
 	var sb strings.Builder
 
-	sb.WriteString(fmt.Sprintf(string(baseNodeShapeString), n.ID, string(n.Shape), n.Text))
+	sb.WriteString(fmt.Sprintf(string(baseNodeShapeString), n.ID, string(n.Shape), escape(n.Text)))
 
 	if n.Class != nil {
 		sb.WriteString(fmt.Sprintf(string(baseNodeClassString), n.Class.Name))
@@ -128,4 +128,9 @@ func (n *Node) String() string {
 	}
 
 	return sb.String()
+}
+
+// escape escapes quotes so that it can be inserted into a mermaid property.
+func escape(s string) string {
+	return strings.ReplaceAll(s, `"`, `\"`)
 }
